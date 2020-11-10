@@ -45,6 +45,7 @@ class EmployeePayrollData{
                         this.startDate.toLocalDateString("en-US",options);
         return "id="+ this.id+", name="+this.name+", salary="+this.salary+
                 ", gender="+this.gender+", startDate="+empDate;
+
     }
 }
 let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date());
