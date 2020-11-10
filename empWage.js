@@ -16,13 +16,20 @@ switch(empCheck){
         return 0;
 }
 }
-let empHrs = 0;
-let day = 0;
-while(empHrs<MAX_HOURS_IN_MONTH && day < NUM_OF_WORKING_DAYS){
-    empCheck = Math.floor(Math.random()*10)%3;
-    empHrs += getWorkHours(empCheck);
-    day++;
+function calcDailyWage(empHrs){
+    return empHrs*WAGE_PER_HOUR;
 }
-let empWage = empHrs * WAGE_PER_HOUR;
-console.log("Total days: "+day+" Total hours: "+empHrs+" Emp Wage: "+empWage);
-© 2020 GitHub, Inc.
+
+let totalEmpHrs = 0;
+let totalWorkingDays = 0;
+let empDailyWageArr = new Array();
+while(totalEmpHrs<MAX_HOURS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS){
+    empCheck = Math.floor(Math.random()*10)%3;
+    let empHrs = getWorkHours(empCheck);
+    totalEmpHrs += empHrs;
+    totalWorkingDays++;
+    empDailyWageArr.push(calcDailyWage(empHrs));
+}
+
+let empWage = calcDailyWage(totalEmpHrs);
+console.log("Total days: "+totalWorkingDays+" Total hours: "+totalEmpHrs+" Emp Wage: "+empWage);
