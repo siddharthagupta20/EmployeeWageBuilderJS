@@ -54,7 +54,7 @@ class EmployeePayrollData{
     }
 }
 try{
-let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date(),"A40088");
+let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date(),"40088B");
 console.log(newEmployeePayrollData);}
 catch(e){
     console.error(e);
