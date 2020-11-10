@@ -3,6 +3,7 @@ class EmployeePayrollData{
     salary;
     gender;
     startDate;
+    pin;
 
     constructor(...params){
         let idAndSalaryRegex = RegExp("[0-9]+");
@@ -23,11 +24,16 @@ class EmployeePayrollData{
         else{
             throw "Gender is incorrect";
         }
-        let dateRegex = RegExp("[0-2][0-9][0-9][0-9][-]");
         if(params[4] <= new Date()){
         this.startDate = params[4];}
         else{
             throw "Date is incorrect";
+        }
+        let pincodeRegex = RegExp("^[1-9][0-9]{5}$");
+        if(pincodeRegex.test(params[5])){
+            this.pin = params[5];
+        }else{
+            throw "Invalid Pin code";
         }
     }
 
@@ -47,5 +53,6 @@ class EmployeePayrollData{
                 ", gender="+this.gender+", startDate="+empDate;
     }
 }
-let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date());
+
+let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date(),400088);
 console.log(newEmployeePayrollData);
