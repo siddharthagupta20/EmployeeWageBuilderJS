@@ -39,4 +39,24 @@ function totalWages(totalWage,dailyWage){
     return totalWage+dailyWage;
 }
 
-console.log("UC7A - Emp Wage Map total wage: "+Array.from(empDailyWageMap.values()).reduce(totalWages,0));
+console.log("Emp Wage Map total wage: "+Array.from(empDailyWageMap.values()).reduce(totalWages,0));
+
+const findTotal = (totalVal,dailyVal) => {
+    return totalVal+dailyVal;
+}
+let count = 0;
+let totalHours = Array.from(empDailyWageMap.values()).reduce(findTotal,0);
+let totalSalary = empDailyWageArr.filter(dailyWage=>dailyWage>0).reduce(findTotal,0);
+console.log("UC9A - Emp Wage with Arrow: "+"Total Hours: "+totalEmpHrs+"Total Wages: "+ totalSalary);
+
+let nonWorkingDays = new Array();
+let partWorkingDays = new Array();
+let fullWorkingDays = new Array();
+empDailyWageMap.forEach((value,key,map)=>{
+    if(value == 160) fullWorkingDays.push(key);
+    else if(value == 80) partWorkingDays.push(key);
+    else nonWorkingDays.push(key);
+});
+console.log("Full Working Days: "+fullWorkingDays);
+console.log("Part Working Days: "+partWorkingDays);
+console.log("Non Working Days: "+nonWorkingDays);
