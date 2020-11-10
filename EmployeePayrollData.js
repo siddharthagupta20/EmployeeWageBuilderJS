@@ -29,7 +29,7 @@ class EmployeePayrollData{
         else{
             throw "Date is incorrect";
         }
-        let pincodeRegex = RegExp("^[1-9][0-9]{5}$");
+        let pincodeRegex = RegExp("[0-9]{3}\s*{0,1}[0-9]{3}");
         if(pincodeRegex.test(params[5])){
             this.pin = params[5];
         }else{
@@ -54,7 +54,7 @@ class EmployeePayrollData{
     }
 }
 try{
-let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date(),"40088B");
+let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date(),"400 088");
 console.log(newEmployeePayrollData);}
 catch(e){
     console.error(e);
